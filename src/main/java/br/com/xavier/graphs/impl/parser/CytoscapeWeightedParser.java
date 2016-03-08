@@ -21,7 +21,7 @@ public class CytoscapeWeightedParser<N extends AbstractNode, E extends AbstractW
 		String edgeStr = "{ data: { source: '" + sourceNodeLbl + "', target: '" + targetNodeLbl + "' #WEIGHT# }, classes: '#EDGE_TYPE#' }";
 		
 		BigDecimal edgeWeight = edge.getWeight();
-		edgeStr = edgeStr.replace("#WEIGHT#", ", label : '" + edgeWeight.toPlainString() + "'");
+		edgeStr = edgeStr.replace("#WEIGHT#", ", label: '" + edgeWeight.toPlainString() + "'");
 		
 		String edgeType = isGraphDirected ? "directed" : "undirected";
 		edgeStr = edgeStr.replace("#EDGE_TYPE#", edgeType);
