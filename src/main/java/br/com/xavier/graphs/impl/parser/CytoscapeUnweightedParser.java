@@ -21,7 +21,7 @@ public class CytoscapeUnweightedParser<N extends AbstractNode, E extends Abstrac
 		String edgeType = isGraphDirected ? "directed" : "undirected";
 		edgeStr = edgeStr.replace("#EDGE_TYPE#", edgeType);
 		
-		String addEdgeStr = graphWidgetVar + "cy.add(" + edgeStr + ");\n";
+		String addEdgeStr = graphWidgetVar + ".add(" + edgeStr + ");\n";
 		
 		return addEdgeStr;
 	}
