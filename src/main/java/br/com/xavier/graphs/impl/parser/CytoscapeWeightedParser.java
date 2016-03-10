@@ -1,12 +1,10 @@
 package br.com.xavier.graphs.impl.parser;
 
-import java.math.BigDecimal;
-
 import br.com.xavier.graphs.abstractions.edges.AbstractWeightedEdge;
 import br.com.xavier.graphs.abstractions.nodes.AbstractNode;
 import br.com.xavier.graphs.abstractions.parser.AbstractCytoscapeParser;
 
-public class CytoscapeWeightedParser<N extends AbstractNode, E extends AbstractWeightedEdge<N>> extends AbstractCytoscapeParser<N, E>{
+public class CytoscapeWeightedParser<N extends AbstractNode, E extends AbstractWeightedEdge<N,T>, T> extends AbstractCytoscapeParser<N, E>{
 	
 	//XXX CONSTRUCTOR
 	public CytoscapeWeightedParser() {}
@@ -20,8 +18,8 @@ public class CytoscapeWeightedParser<N extends AbstractNode, E extends AbstractW
 		
 		String edgeStr = "{ data: { source: '" + sourceNodeLbl + "', target: '" + targetNodeLbl + "' #WEIGHT# }, classes: '#EDGE_TYPE#' }";
 		
-		BigDecimal edgeWeight = edge.getWeight();
-		edgeStr = edgeStr.replace("#WEIGHT#", ", label: '" + edgeWeight.toPlainString() + "'");
+		T edgeWeight = edge.getWeight();
+		edgeStr = edgeStr.replace("#WEIGHT#", ", label: '" + edgeWeight.toString() + "'");
 		
 		String edgeType = isGraphDirected ? "directed" : "undirected";
 		edgeStr = edgeStr.replace("#EDGE_TYPE#", edgeType);
