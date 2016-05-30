@@ -25,5 +25,5 @@ public class CytoscapeUnweightedParser<N extends AbstractNode, E extends Abstrac
 		
 		return addEdgeStr;
 	}
-
+	
 }
